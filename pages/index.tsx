@@ -4,6 +4,8 @@ import Image from 'next/image'
 import logo from "../assets/logo.svg"
 import Button from '../components/Button'
 
+import bg_triangle from "../assets/bg-triangle.svg"
+
 const Home: NextPage = () => {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen py-2 bg-gradient-radial">
@@ -16,8 +18,11 @@ const Home: NextPage = () => {
           <div className='text-[44px] text-[#3b4363] bg-red-200 h-content'>1</div>
         </div>
       </div>
-      <div>
-        <Button/>
+
+      <div className='w-[440px] h-[410px] relative bg-[url("/bg-triangle.svg")] bg-no-repeat bg-center'>
+        <Button type="paper" className="absolute top-0 left-0"/>
+        <Button type="scissors" className="absolute top-0 right-0"/>
+        <Button type="rock" className="absolute bottom-0 left-[50%] translate-x-[-50%]"/>
       </div>
      
      <footer>
