@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import logo from "../assets/logo.svg"
+import Button from '../components/Button'
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div>
-        ini content
+        <Button/>
       </div>
      
      <footer>

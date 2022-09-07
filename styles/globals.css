@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer components {
+  .ayam-goreng{
+    @apply bg-gradient-to-b from-[#f6b948] to-[#EB9E0E] from p-5 rounded-full lg:w-60 lg:h-60;
+  }
+} */
+@layer components {
+  .ayam-goreng {
+    @apply ;
+  }
+}
+
+
 @font-face {
   font-family: "Barlow-semi-condensed";
   src: url("/assets/barlow-semi-condensed/BarlowSemiCondensed-Thin.ttf") format("truetype");
@@ -120,3 +132,4 @@ body{
   font-weight: 500;
   /* font-style: italic; */
 }
+
