@@ -5,6 +5,8 @@ import cn from "classnames"
 import icon_scissors from "../assets/icon-scissors.svg"
 import icon_paper from "../assets/icon-paper.svg"
 import icon_rock from "../assets/icon-rock.svg"
+import { useSetRecoilState } from 'recoil'
+import { contentState, handState } from '../atoms/allAtoms'
 
 type Props = {
   type: string
@@ -14,18 +16,33 @@ type Props = {
 
 const HandButton = (props: Props) => {
   const { type = "rock", className, disabled = false } = props
+  const setContentState = useSetRecoilState(contentState)
+  const setHandtState = useSetRecoilState(handState)
 
-  const setEnemyHand = () => {
+  const getEnemyHand = () => {
     const hands = ["rock", "paper", "scissors"]
 
     const enemyIndex = Math.floor(Math.random() * 3);
     console.log("enemy hands:", hands[enemyIndex])
 
+    return hands[enemyIndex]
+
   }
 
   const handleClick = () => {
-    console.log("gua jalan")
-    setEnemyHand()
+
+    const enemyHand = getEnemyHand()
+
+    setHandtState({
+      playerHand: type,
+      enemyHand: enemyHand
+    })
+
+    // Gimana caranya make previos value statenya
+    setContentState({
+      isBattle: false,
+      showRule: false,
+    })
   }
 
   const HandButtonCn = cn(
