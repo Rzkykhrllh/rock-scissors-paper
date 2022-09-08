@@ -2,12 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import logo from "../assets/logo.svg"
-import HandButton from '../components/HandButton'
 
 import bg_triangle from "../assets/bg-triangle.svg"
 import Button from '../components/Button'
+import { useRecoilValue } from 'recoil'
+import { contentState, handState } from '../atoms/allAtoms'
+import Battle from '../components/Battle'
+import Result from '../components/Result'
 
 const Home: NextPage = () => {
+  const contentTypeState = useRecoilValue(contentState)
+  const handConditionState = useRecoilValue(handState)
+
+  console.log("content Type:", contentTypeState)
+
   return (
     <div className="flex flex-col items-center justify-between min-h-screen py-2 bg-gradient-radial">
      
@@ -21,27 +29,15 @@ const Home: NextPage = () => {
       </div>
 
       {/* the game  */}
-      {/* <div className='sm:w-[440px] sm:h-[410px] w-[290px] h-[262px] relative bg-[url("/bg-triangle.svg")] bg-no-repeat bg-center'>
-        <HandButton type="paper" className="absolute top-0 left-0"/>
-        <HandButton type="scissors" className="absolute top-0 right-0"/>
-        <HandButton type="rock" className="absolute bottom-0 left-[50%] translate-x-[-50%]"/>
-      </div> */}
+      {contentTypeState?.isBattle && (
+        <Battle/>
+      )}
+      
 
       {/* the result */}
-      <div className='flex justify-between sm:w-[640px] bg-red-400 px-3 text-center'>
-          <div>
-            <p>Your Hand</p>
-            <HandButton type="paper" disabled/>
-          </div>
-        <div>
-          YOU WIN
-          <Button wording="PLAY AGAIN" isFilled/>
-        </div>
-        <div>
-          <p>OPPONENTS HAND</p>
-          <HandButton type="paper" disabled/>
-        </div>
-      </div>
+      {!contentTypeState?.isBattle && (
+        <Result/>
+      )}
       
      <footer>
       footer
