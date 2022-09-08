@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import logo from "../assets/logo.svg"
-import Button from '../components/Button'
+import HandButton from '../components/HandButton'
 
 import bg_triangle from "../assets/bg-triangle.svg"
+import Button from '../components/Button'
 
 const Home: NextPage = () => {
   return (
@@ -19,12 +20,29 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className='w-[440px] h-[410px] relative bg-[url("/bg-triangle.svg")] bg-no-repeat bg-center'>
-        <Button type="paper" className="absolute top-0 left-0"/>
-        <Button type="scissors" className="absolute top-0 right-0"/>
-        <Button type="rock" className="absolute bottom-0 left-[50%] translate-x-[-50%]"/>
+      {/* the game  */}
+      {/* <div className='sm:w-[440px] sm:h-[410px] w-[290px] h-[262px] relative bg-[url("/bg-triangle.svg")] bg-no-repeat bg-center'>
+        <HandButton type="paper" className="absolute top-0 left-0"/>
+        <HandButton type="scissors" className="absolute top-0 right-0"/>
+        <HandButton type="rock" className="absolute bottom-0 left-[50%] translate-x-[-50%]"/>
+      </div> */}
+
+      {/* the result */}
+      <div className='flex justify-between sm:w-[640px] bg-red-400 px-3 text-center'>
+          <div>
+            <p>Your Hand</p>
+            <HandButton type="paper" disabled/>
+          </div>
+        <div>
+          YOU WIN
+          <Button wording="PLAY AGAIN" isFilled/>
+        </div>
+        <div>
+          <p>OPPONENTS HAND</p>
+          <HandButton type="paper" disabled/>
+        </div>
       </div>
-     
+      
      <footer>
       footer
      </footer>
