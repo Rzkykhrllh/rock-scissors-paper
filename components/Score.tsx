@@ -16,7 +16,7 @@ function Score({}: Props) {
       <Image src={logo}/>
       <div className='flex flex-col justify-center px-6 py-3 text-base border rounded bg-slate-100'>
         <p className='text-[#2a46c0]'>SCORE</p>
-        <div className='text-[44px] text-[#3b4363] h-content text-center py-2'>{score}</div>
+        <div className='text-[44px] text-[#3b4363] h-content   text-center py-2'>{score}</div>
       </div>
     </div>
   )

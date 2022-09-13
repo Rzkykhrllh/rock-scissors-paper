@@ -20,3 +20,8 @@ export const scoreState = atom<number>({
   key: "scoreState",
   default: 0
 })
+
+export const modalState = atom<boolean>({
+  key: "modalState",
+  default: false
+})

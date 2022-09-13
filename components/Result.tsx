@@ -3,13 +3,14 @@ import HandButton from '../components/HandButton'
 import Button from '../components/Button'
 
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { handState, scoreState } from '../atoms/allAtoms'
+import { handState, scoreState, contentState } from '../atoms/allAtoms'
 
 type Props = {}
 
 function Result({}: Props) {
   const handConditionState = useRecoilValue(handState)
   const [score, setScore] = useRecoilState(scoreState)
+  const setContentState = useSetRecoilState(contentState)
   const [resultWording, setresultWording] = useState("")
 
 
@@ -56,6 +57,13 @@ function Result({}: Props) {
     return result
   }
 
+  const handlePlayAgainClick = () => {
+    setContentState({
+      isBattle: true,
+      showRule: false,
+    })
+  }
+
   useEffect(() => {
     resultProcess()
   }, [])
@@ -68,7 +76,7 @@ function Result({}: Props) {
       </div>
       <div className='flex flex-col justify-center'>
         <p className='mb-6 text-[30px] text-white'>{resultWording}</p>
-        <Button wording="PLAY AGAIN" isFilled/>
+        <Button wording="PLAY AGAIN" isFilled oncClick={handlePlayAgainClick}/>
       </div>
       <div>
         <p className='mb-6 text-white'>THE HOUSE PICKED</p>
