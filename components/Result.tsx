@@ -69,17 +69,17 @@ function Result({}: Props) {
   }, [])
   
   return (
-    <div className='flex justify-between sm:w-[640px] px-3 text-center'>
-      <div>
-        <p className='mb-6 text-white'>YOU PICKED</p>
+    <div className='flex justify-center sm:justify-between sm:w-[640px] px-3 text-center w-80 flex-wrap'>
+      <div className='w-[140px] sm:w-max'>
+        <p className='mb-6 text-sm text-white'>YOU PICKED</p>
         <HandButton type={handConditionState?.playerHand} disabled/>
       </div>
-      <div className='flex flex-col justify-center'>
-        <p className='mb-6 text-[30px] text-white'>{resultWording}</p>
+      <div className='flex flex-col flex-wrap justify-center order-last sm:order-none'>
+        <p className='sm:mb-6 mb-2 mt-4 sm:mt-0 text-[30px] text-white text-lg sm:text-3xl'>{resultWording}</p>
         <Button wording="PLAY AGAIN" isFilled oncClick={handlePlayAgainClick}/>
       </div>
-      <div>
-        <p className='mb-6 text-white'>THE HOUSE PICKED</p>
+      <div className='w-[140px] sm:w-max'>
+        <p className='mb-6 text-sm text-white'>THE HOUSE PICKED</p>
         <HandButton type={handConditionState?.enemyHand} disabled/>
       </div>
     </div>

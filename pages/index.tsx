@@ -23,27 +23,29 @@ const Home: NextPage = () => {
       <Score/>
 
       {/* the game  */}
-      {contentTypeState?.isBattle && (
+      {contentTypeState.isBattle && (
         <Battle/>
       )}
       
       {/* the result */}
-      {!contentTypeState?.isBattle && (
+      {!contentTypeState.isBattle && (
         <Result/>
       )}
 
       <Button className='absolute px-6 font-light bottom-4 right-4' wording='RULE' oncClick={handleRuleButtonClick}/>
 
       {modal && (
-        <div className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-10 rounded-2xl w-content h-content'>
-          <RiCloseFill className='absolute text-lg text-gray-400 top-4 right-4 hover:cursor-pointer' onClick={handleRuleButtonClick}/>
-          <Image src={rule}/>
+        <div className='absolute top-0 bottom-0 left-0 right-0 inline-grid flex-col content-center justify-center w-full'>
+          <div className='p-8 bg-white rounded-2xl w-[350px] relative '>
+            <RiCloseFill className='absolute text-lg text-gray-400 top-4 right-4 hover:cursor-pointer' onClick={handleRuleButtonClick}/>
+            <Image src={rule} width={304} height={"270px"} />
+          </div>
         </div>
       )}
       
-      <footer className='text-sm font-light text-white text-light' onClick={handleRuleButtonClick}>
-        Submition of Frontend Mentor Chellenge by Airu
-      </footer>
+      <div className='text-sm font-light text-left text-white text-light' onClick={handleRuleButtonClick}>
+        <p className='block w-full text-left'>Submition of Frontend Mentor Chellenge by Airu</p>
+      </div>
     </div>
   )
 }

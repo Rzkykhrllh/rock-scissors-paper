@@ -9,7 +9,7 @@ import { useSetRecoilState } from 'recoil'
 import { contentState, handState } from '../atoms/allAtoms'
 
 type Props = {
-  type: string
+  type: string | null
   className?: string
   disabled?: boolean
 }

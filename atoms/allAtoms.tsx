@@ -1,6 +1,16 @@
 import { atom } from 'recoil'
 
-export const contentState = atom<Object>({
+type TContentState = {
+  isBattle: boolean,
+  showRule: boolean,
+}
+
+type THandState = {
+  playerHand: string | null,
+  enemyHand: string | null,
+}
+
+export const contentState = atom<TContentState>({
   key: "contentType",
   default: {
     isBattle: true,
@@ -8,7 +18,7 @@ export const contentState = atom<Object>({
   }
 })
 
-export const handState =  atom<Object>({
+export const handState =  atom<THandState>({
   key: "handState",
   default: {
     playerHand: null,

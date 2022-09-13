@@ -12,7 +12,8 @@ function Score({}: Props) {
   const score = useRecoilValue(scoreState)
 
   return (
-    <div id='header' className='flex px-6 py-3 border rounded max-w-[50%] w-full justify-between'>
+
+    <div id='header' className='flex px-6 py-3 border rounded sm:max-w-[50%] mx-8 w-[90%] justify-between'>
       <Image src={logo}/>
       <div className='flex flex-col justify-center px-6 py-3 text-base border rounded bg-slate-100'>
         <p className='text-[#2a46c0]'>SCORE</p>
